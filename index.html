@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tienda Retro</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<h1>🎮 Tienda Retro</h1>
+
+<!-- JUEGOS -->
+<section id="juegos">
+    <div class="catalogo">
+
+        <div class="card">
+            <img src="img/dementium1.jpg">
+            <h3>Dementium - The Ward</h3>
+            <p class="precio">$10 MXN</p>
+            <button onclick="add('Dementium - The Ward')">Agregar</button>
+        </div>
+
+        <div class="card">
+            <img src="img/dementium2.jpg">
+            <h3>Dementium 2</h3>
+            <p class="precio">$10 MXN</p>
+            <button onclick="add('Dementium 2')">Agregar</button>
+        </div>
+
+        <div class="card">
+            <img src="img/pokemon_blanco.jpg">
+            <h3>Pokémon Blanco</h3>
+            <p class="precio">$10 MXN</p>
+            <button onclick="add('Pokemon Blanco')">Agregar</button>
+        </div>
+
+        <div class="card">
+            <img src="img/pokemon_negro.jpg">
+            <h3>Pokémon Negro</h3>
+            <p class="precio">$10 MXN</p>
+            <button onclick="add('Pokemon Negro')">Agregar</button>
+        </div>
+
+         <div class="card">
+            <img src="img/pokemon_rojo.png">
+            <h3>Pokémon Rojo Fuego</h3>
+            <p class="precio">$10 MXN</p>
+            <button onclick="add('Pokemon Rojo Fuego')">Agregar</button>
+        </div>
+
+        <div class="card">
+            <img src="img/pokemon_verde.png">
+            <h3>Pokémon Verde Hoja</h3>
+            <p class="precio">$10 MXN</p>
+            <button onclick="add('Pokemon Verde Hoja')">Agregar</button>
+        </div>
+
+        <div class="card">
+            <img src="img/mario_ds.jpg">
+            <h3>Super Mario 64 DS</h3>
+            <p class="precio">$10 MXN</p>
+            <button onclick="add('Super Mario 64 DS')">Agregar</button>
+        </div>
+
+        <div class="card">
+            <img src="img/zelda_ds.png">
+            <h3>Zelda Phantom Hourglass</h3>
+            <p class="precio">$10 MXN</p>
+            <button onclick="add('Zelda Phantom Hourglass')">Agregar</button>
+        </div>
+
+    </div>
+</section>
+
+<!-- EMULADORES -->
+<section id="emuladores">
+    <h2>🖥️ Emuladores (Gratis)</h2>
+    <div class="catalogo">
+
+        <div class="card gratis">
+            <img src="img/My-Boy.jpg">
+            <h3>Game Boy Advance Emulator</h3>
+            <p class="gratis-texto">GRATIS</p>
+            <button onclick="add('Game Boy Advance Emulator')">Descargar</button>
+        </div>
+
+        <div class="card gratis">
+            <img src="img/melonds.png">
+            <h3>MelonDS Emulator</h3>
+            <p class="gratis-texto">GRATIS</p>
+            <button onclick="add('MelonDS Emulator')">Descargar</button>
+        </div>
+
+    </div>
+</section>
+<hr>
+
+<h2>🛒 Carrito</h2>
+<ul id="carrito"></ul>
+<p>Total: $<span id="total">0</span> MXN</p>
+<button onclick="pagar()">Pagar</button>
+
+<script src="https://js.stripe.com/v3/"></script>
+<script src="app.js"></script>
+
+</body>
+</html>

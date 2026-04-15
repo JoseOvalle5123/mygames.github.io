@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Compra exitosa</title>
+</head>
+<body>
+
+<h1> Pago completado</h1>
+<h2>Descarga tus juegos:</h2>
+
+<div id="descargas"></div>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const sessionId = params.get("session_id");
+
+  const cont = document.getElementById("descargas");
+
+  async function verificarPago() {
+
+    if (!sessionId) {
+      cont.innerHTML = "<p>Error: no hay sesión</p>";
+      return;
+    }
+
+   
+    const res = await fetch(`/verify-session/${sessionId}`);
+    const data = await res.json();
+
+    if (!data.success) {
+      cont.innerHTML = "<p>Pago no verificado ❌</p>";
+      return;
+    }
+
+    const token = data.token;
+
+    const items = JSON.parse(localStorage.getItem("compra")) || [];
+
+    if(items.length === 0){
+      cont.innerHTML = "<p>No hay productos</p>";
+      return;
+    }
+
+   
+    items.forEach(i => {
+      cont.innerHTML += `
+        <div>
+          <p>${i.name}</p>
+          <a href="/download/${encodeURIComponent(i.name)}?token=${token}">
+            <button>Descargar</button>
+          </a>
+        </div>
+      `;
+    });
+  }
+
+  verificarPago();
+</script>
+
+</body>
+</html>
