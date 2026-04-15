@@ -38,7 +38,7 @@ app.post('/create-checkout-session', async (req, res) => {
       })),
       mode: 'payment',
       success_url: `http://localhost:3000/success.html?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `http://localhost:3000`
+      cancel_url: `https://mygames-github-io.onrender.com`
     });
 
     res.json({ id: session.id });
